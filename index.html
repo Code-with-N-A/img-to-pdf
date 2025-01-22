@@ -273,6 +273,7 @@ h1{
         <span>N.A</span>
     </div>
 
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         const imageInput = document.getElementById("imageInput");
@@ -337,6 +338,7 @@ h1{
 
             const images = imageContainer.querySelectorAll('img');
             const pdfName = pdfNameInput.value || "CodeWith N.A"; // Use default name "CodeWith N.A"
+            const url = " All school and college pepar are available in this website  https://paperlibrary.netlify.app/"; // Your website URL
 
             // Show loader
             loader.style.display = "flex";
@@ -368,6 +370,10 @@ h1{
 
                 // Add image to PDF at the center of the page
                 doc.addImage(img.src, 'JPEG', offsetX, offsetY, pdfWidth, pdfHeight, null, 'FAST');
+
+                // Add URL at the bottom of each page
+                doc.setFontSize(10);
+                doc.text(url, pageWidth / 2, pageHeight - 10, { align: 'center' });
             });
 
             setTimeout(() => {
@@ -377,6 +383,7 @@ h1{
             }, 2000); // 2 seconds loader delay for demonstration
         }
     </script>
+
 
 </body>
 </html>
